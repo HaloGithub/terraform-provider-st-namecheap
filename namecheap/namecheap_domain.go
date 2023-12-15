@@ -263,7 +263,7 @@ func (r *namecheapDomainResource) createDomain(ctx context.Context, domain strin
 	// else, if domain does not exist, then create
 
 	resp, err := sdk.DomainsAvailable(client, domain)
-	if err == nil && *resp.Result.Available {
+	if err == nil && resp.Result.Available {
 		// no err and available, create
 		log(ctx, "Domain [%s] is available, Creating...", domain)
 
